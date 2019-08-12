@@ -1,0 +1,199 @@
+contrib-hipchat-webhooks(ng-controller="ContribHipChatAdminController as ctrl")
+    header
+        h1
+            span.project-name {{::project.name}}
+            span.green {{::sectionName}}
+
+    form
+        label(for="url") HipChat webhook url
+        .contrib-form-wrapper
+            fieldset.contrib-input
+                input(
+                    type="text"
+                    name="url"
+                    ng-model="hipchathook.url"
+                    placeholder="Write here the url"
+                    id="url"
+                    data-type="url"
+                )
+            fieldset.contrib-test(ng-show="hipchathook.id")
+                a.button-gray(
+                    href=""
+                    title="Test"
+                    ng-click="ctrl.testHook()"
+                ) Test
+        fieldset
+            h2 Notifications on Hipchat
+            .check-item
+                span Enable notifications on Hipchat
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+        fieldset
+            h2 Notify Epics
+            div.check-item
+                span Create
+                div.check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_epic_create")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            div.check-item
+                span Change
+                div.check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_epic_change")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            div.check-item
+                span Delete
+                div.check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_epic_delete")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+          fieldset
+              h2 Notify Epics related user stories
+              div.check-item
+                  span Create
+                  div.check
+                      input(type="checkbox" name="notification" ng-model="hipchathook.notify_relateduserstory_create")
+                      div
+                      span.check-text.check-yes(translate="COMMON.YES")
+                      span.check-text.check-no(translate="COMMON.NO")
+
+              div.check-item
+                  span Delete
+                  div.check
+                      input(type="checkbox" name="notification" ng-model="hipchathook.notify_relateduserstory_delete")
+                      div
+                      span.check-text.check-yes(translate="COMMON.YES")
+                      span.check-text.check-no(translate="COMMON.NO")
+
+        fieldset
+            h2 Notify User Stories
+            .check-item
+                span Create
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_userstory_create")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Change
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_userstory_change")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Delete
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_userstory_delete")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+        fieldset
+            h2 Notify Tasks
+            .check-item
+                span Create
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_task_create")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Change
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_task_change")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Delete
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_task_delete")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+        fieldset
+            h2 Notify Issues
+            .check-item
+                span Create
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_issue_create")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Change
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_issue_change")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Delete
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_issue_delete")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+
+        fieldset
+            h2 Notify Wiki
+            .check-item
+                span Create
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_wikipage_create")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Change
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_wikipage_change")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+            .check-item
+                span Delete
+                .check
+                    input(type="checkbox" name="notification" ng-model="hipchathook.notify_wikipage_delete")
+                    div
+                    span.check-text.check-yes(translate="COMMON.YES")
+                    span.check-text.check-no(translate="COMMON.NO")
+
+        button.hidden(
+            type="submit"
+        )
+        a.button-green.submit-button(
+            href=""
+            title="Save"
+            ng-click="ctrl.updateOrCreateHook(hipchathook)"
+        )
+            span Save
+
+    a.help-button(
+        href="https://manage.tuesmon.com/support/contrib-plugins/hipchat-integration/"
+        target="_blank"
+    )
+        tg-svg(svg-icon="icon-question")
+        span Do you need help? Check out our support page!
